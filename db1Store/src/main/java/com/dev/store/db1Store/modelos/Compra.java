@@ -28,16 +28,6 @@ public class Compra {
 	}
 
 
-	public Carrinho getCarrinho() {
-		return carrinho;
-	}
-
-
-	public void setCarrinho(Carrinho carrinho) {
-		this.carrinho = carrinho;
-	}
-
-
 	public Double getValorTotal() {
 		return valorTotal;
 	}
@@ -47,11 +37,8 @@ public class Compra {
 		this.valorTotal = valorTotal;
 	}
 
-	@OneToOne
-	private Carrinho carrinho;
-	
 	 
-	private Double valorTotal;
+	private Double valorTotal=0.;
 	
 	
 

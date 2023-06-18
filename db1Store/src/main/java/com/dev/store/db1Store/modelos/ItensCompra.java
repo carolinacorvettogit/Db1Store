@@ -65,7 +65,7 @@ public class ItensCompra {
 	
 	private Integer quantidade=0;
 	
-	private Double valorUnit;
+	private Double valorUnit=0.;
 	
 	private Double valorTotal=0.;
 

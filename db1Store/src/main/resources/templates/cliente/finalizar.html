@@ -31,7 +31,7 @@
 					<button class="btn btn-outline-dark" type="submit">
 						<i class="bi-cart-fill me-1"></i>
 						Cart
-						<span class="badge bg-dark text-white ms-1 rounded-pill" ></span>
+						<span class="badge bg-dark text-white ms-1 rounded-pill"></span>
 					</button>
 				</form>
 			</div>
@@ -60,50 +60,30 @@
 								<th scope="col" class="text-center">Quantidade</th>
 								<th scope="col" class="text-right">Preço Unitário</th>
 								<th scope="col" class="text-right">Preço Total</th>
-								<th> </th>
+
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:each="item : ${listaItens}">
-
 								<td><img class="img-fluid"
 										th:src="@{/mostrarFoto/{foto}(foto=${item.produto.foto})}" /><!-- Product details-->
 								</td>
 								<td th:text="${item.produto.nome}"></td>
-								<td th:text="${item.produto.quantidade}"></td>
+								<td>estoque</td>
 								<td>
 									<div class="text-center"><span th:text="${item.quantidade}"></div>
-
-									<form th:action="@{/alterarQuantidade}" method="post">
-										<div class="text-center">
-											<input type="hidden" name="id" th:value="${item.produto.id}" />
-											<input type="hidden" name="acao" th:value="${1}" />
-											<button class="btn btn-sm btn-success" type="submit">+</button>
-									</form>
-
-									<form th:action="@{/alterarQuantidade}" method="post">
-										<input type="hidden" name="id" th:value="${item.produto.id}" />
-										<input type="hidden" name="acao" th:value="${0}" />
-										<button class="btn btn-sm btn-success" type="submit">- </button>
-
-									</form>
 								</td>
 								<td class="text-right" th:text="${item.valorUnit}"></td>
 								<td class="text-right" th:text="${item.valorTotal}"></td>
-								<td class="text-right">
-									<form th:action="@{/remover}" method="post">
-										<input type="hidden" name="id" th:value="${item.produto.id}" />
-										<button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Deletar
-										</button>
 
-									</form>
-								</td>
+
+								<!--<td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Deletar
+									</button> </td>-->
 							</tr>
 
 
 							<tr>
 
-								<td></td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -119,27 +99,15 @@
 				<!--</div>-->
 				<div class="col mb-2">
 					<div class="row">
-						<div class="col-sm-12  col-md-6">
 
-							<form class="d-flex" th:action="@{/}">
-								<button class="btn btn-block btn-light">
-
-									Continuar Comprando
-
-								</button>
-							</form>
-
-						</div>
 						<div class="col-sm-12 col-md-6 text-right">
-
-							<form class="d-flex" th:action="@{/finalizar}">
+							<form class="d-flex" th:action="@{/confirmar}">
 								<button class="btn btn-lg btn-block btn-success text-uppercase">
 
-									Finalizar Compra
+									Comfirmar Compra
 
 								</button>
 							</form>
-
 						</div>
 					</div>
 				</div>
